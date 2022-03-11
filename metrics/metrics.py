@@ -7,7 +7,7 @@ class Metrics():
     def __init__(self, args, device = 'cuda'):
 
         if args.we is not None:            
-            self.we = load_embeddings('deps', self.we)        
+            self.we = load_embeddings('deps', args.we)        
         
         if args.m == 'DS_Focus_NN':
             model_name = '../dbert'
