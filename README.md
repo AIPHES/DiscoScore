@@ -16,8 +16,8 @@ Note that DS_Focus uses [Conpono](https://drive.google.com/drive/folders/1FE2loC
 
 Semantic Entity refers to a set of semantically related expressions. We detect such entities with semantic relatedness of words in vector space derived from [deps.words.bz2](https://drive.google.com/file/d/1epNYyAKban3XYg6FCMvPhQw7Yf-Y78E4/view?usp=sharing).
 
-# Usage
-1. We will release the code to run experiments on NewsRoom and document-level MT.
+# TODO
+1. We will release the code to run experiments on document-level MT.
 
 ## References
 
