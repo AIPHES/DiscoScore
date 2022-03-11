@@ -6,7 +6,7 @@ DiscoScore is a parameterized, reference-based evaluation, with parameters on th
 
 1. We provide the implementations on a range of discourse metrics: LC and RC, EntityGraph, LexicalGraph and Lexical Chain. We refer readers to the paper for the details of these metrics. 
 2. DiscoScore contains two variants: DS_Focus and DS_SENT, each paramerized with the choice of Focus. 
-3. We provide the code for running experiments on SUMMEval. 
+3. We provide the code for running experiments on SUMMEval and NewsRoom.
 
 # Usage
 
