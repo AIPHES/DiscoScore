@@ -3,6 +3,9 @@ import time
 import numpy as np
 from metrics.utils import *
 
+# We adapt the evaluation framework of BARTScore to evaluate DiscoScore on NewsRoom.
+# See https://github.com/neulab/BARTScore/blob/main/SUM/score.py
+
 class Scorer:
 
     def __init__(self, args, device='cuda:0'):
