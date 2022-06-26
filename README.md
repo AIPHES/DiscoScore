@@ -21,18 +21,21 @@ The following code supports 6 discourse metrics. Please refer to Appendix A.1 in
 
 Note that if system and reference texts do not contain coherence phenomena (e.g., no word repetition), then the discourse metrics would return 0.
 
->>> disco_scorer = DiscoScorer(device='cuda:0', model_name='bert-base-uncased')
->>> system = ["Paul Merson has restarted his row with andros townsend after the Tottenham midfielder was brought on with only seven minutes remaining in his team 's 0-0 draw with burnley. Townsend was brought on in the 83rd minute for Tottenham as they drew 0-0 against Burnley ."]
->>> references = [["Paul Merson has restarted his row with burnley on sunday. Townsend was brought on in the 83rd minute for tottenham. Andros Townsend scores england 's equaliser in their 1-1 friendly draw. Townsend hit a stunning equaliser for england against italy."]]
->>> for s, refs in zip(system, references):
->>>   s = s.lower()
->>>   refs = [r.lower() for r in refs]
->>>   print(disco_scorer.EntityGraph(s, refs))
->>>   print(disco_scorer.LexicalChain(s, refs))
->>>   print(disco_scorer.RC(s, refs))    
->>>   print(disco_scorer.LC(s, refs)) 
->>>   print(disco_scorer.DS_Focus_NN(s, refs)) # FocusDiff 
->>>   print(disco_scorer.DS_SENT_NN(s, refs)) # SentGraph
+```python
+from DiscoScorer import DiscoScorer
+disco_scorer = DiscoScorer(device='cuda:0', model_name='bert-base-uncased')
+system = ["Paul Merson has restarted his row with andros townsend after the Tottenham midfielder was brought on with only seven minutes remaining in his team 's 0-0 draw with burnley. Townsend was brought on in the 83rd minute for Tottenham as they drew 0-0 against Burnley ."]
+references = [["Paul Merson has restarted his row with burnley on sunday. Townsend was brought on in the 83rd minute for tottenham. Andros Townsend scores england 's equaliser in their 1-1 friendly draw. Townsend hit a stunning equaliser for england against italy."]]
+for s, refs in zip(system, references):
+   s = s.lower()
+   refs = [r.lower() for r in refs]
+   print(disco_scorer.EntityGraph(s, refs))
+   print(disco_scorer.LexicalChain(s, refs))
+   print(disco_scorer.RC(s, refs))    
+   print(disco_scorer.LC(s, refs)) 
+   print(disco_scorer.DS_Focus_NN(s, refs)) # FocusDiff 
+   print(disco_scorer.DS_SENT_NN(s, refs)) # SentGraph
+```
 
 # TODO
 1. We will release the code to run experiments on document-level MT.
