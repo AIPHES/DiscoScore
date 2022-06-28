@@ -10,6 +10,12 @@ DiscoScore is a parameterized, reference-based evaluation, with parameters on th
 
 # Usage
 
+Install from GitHub with pip:
+
+```bash
+pip install "git+https://github.com/AIPHES/DiscoScore.git"
+```
+
 Please run [SUMMEval.py](https://github.com/AIPHES/DiscoScore/blob/main/SUMMEval.py) to reproduce the results in our paper. 
 
 Note that DS_Focus uses [Conpono](https://drive.google.com/drive/folders/1FE2loCSfdBbYrYk_qHg6W_PTqvA9w46T?usp=sharing) (finetuned BERT on discourse corpora), and DS_SENT uses [BERT-NLI](https://drive.google.com/drive/folders/19-6TgHdfAVL6xzpqzMoTpxXKLkXOCBiO?usp=sharing) (finetuned BERT on NLI). Because this configuration performs best in our intial trials (see the paper for details). 
@@ -22,10 +28,13 @@ The following code supports 6 discourse metrics. Please refer to Appendix A.1 in
 Note that if system and reference texts do not contain coherence phenomena (e.g., no word repetition), then the discourse metrics would return 0.
 
 ```python
-from DiscoScorer import DiscoScorer
+from disco_score import DiscoScorer
+
 disco_scorer = DiscoScorer(device='cuda:0', model_name='bert-base-uncased')
+
 system = ["Paul Merson has restarted his row with andros townsend after the Tottenham midfielder was brought on with only seven minutes remaining in his team 's 0-0 draw with burnley. Townsend was brought on in the 83rd minute for Tottenham as they drew 0-0 against Burnley ."]
 references = [["Paul Merson has restarted his row with burnley on sunday. Townsend was brought on in the 83rd minute for tottenham. Andros Townsend scores england 's equaliser in their 1-1 friendly draw. Townsend hit a stunning equaliser for england against italy."]]
+
 for s, refs in zip(system, references):
    s = s.lower()
    refs = [r.lower() for r in refs]
