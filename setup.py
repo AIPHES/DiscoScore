@@ -5,7 +5,7 @@ setuptools.setup(
     version="0.1.0",
     description="DiscoScore: Evaluating Text Generation with BERT and Discourse Coherence",
     author="Wei Zhao",
-    url="https://github.com/allenai/BARTScore",
+    url="https://github.com/AIPHES/DiscoScore",
     python_requires=">=3.6",
     packages=setuptools.find_packages(),
     install_requires=[
