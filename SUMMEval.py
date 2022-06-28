@@ -88,7 +88,7 @@ class SUMMEval():
 
 
 import argparse
-from metrics.metrics import Metrics
+from disco_score.metrics.metrics import Metrics
 from scipy.stats import kendalltau                        
     
 parser = argparse.ArgumentParser()

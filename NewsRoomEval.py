@@ -1,7 +1,7 @@
 import argparse
 import time
 import numpy as np
-from metrics.utils import *
+from disco_score.metrics.utils import *
 
 # We adapt the evaluation framework of BARTScore to evaluate DiscoScore on NewsRoom.
 # See https://github.com/neulab/BARTScore/blob/main/SUM/score.py
@@ -56,7 +56,7 @@ class Scorer:
 
         if self.args.m == 'bart_score' or self.args.m == 'bart_score_cnn' or self.args.m == 'bart_score_para':
             """ Vanilla BARTScore, BARTScore-CNN, BARTScore-CNN-Para """
-            from metrics.bart_score import BARTScorer
+            from disco_score.metrics.bart_score import BARTScorer
             # Set up BARTScore
             if 'cnn' in self.args.m:
                 bart_scorer = BARTScorer(device=self.device, checkpoint='facebook/bart-large-cnn')
@@ -108,7 +108,7 @@ class Scorer:
 
         elif self.args.m.startswith('DS_Focus') or self.args.m.startswith('DS_SENT'):
 
-            from metrics.metrics import Metrics
+            from disco_score.metrics.metrics import Metrics
 
             eval_metric = getattr(Metrics(args = self.args), self.args.m)                        
             
