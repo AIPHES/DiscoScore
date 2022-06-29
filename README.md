@@ -23,7 +23,7 @@ Note that if system and reference texts do not contain coherence phenomena (e.g.
 
 ```python
 from DiscoScorer import DiscoScorer
-disco_scorer = DiscoScorer(device='cuda:0', model_name='bert-base-uncased')
+disco_scorer = DiscoScorer(device='cuda:0', model_name='bert-base-uncased') # use Conpono for DS-Focus and BERT-NLI for DS-SENT for better results
 system = ["Paul Merson has restarted his row with andros townsend after the Tottenham midfielder was brought on with only seven minutes remaining in his team 's 0-0 draw with burnley. Townsend was brought on in the 83rd minute for Tottenham as they drew 0-0 against Burnley ."]
 references = [["Paul Merson has restarted his row with burnley on sunday. Townsend was brought on in the 83rd minute for tottenham. Andros Townsend scores england 's equaliser in their 1-1 friendly draw. Townsend hit a stunning equaliser for england against italy."]]
 for s, refs in zip(system, references):
