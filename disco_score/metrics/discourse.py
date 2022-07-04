@@ -120,7 +120,7 @@ def _safe_divide(numerator, denominator):
 
 def DS_Focus(model, tokenizer, sys, ref, is_semantic_entity=False, we=None, threshold=0):
     
-    from metrics.focus_diff import get_embeddings
+    from disco_score.metrics.focus_diff import get_embeddings
     
     scores = []
     s_embedding, s_noun_positions = get_embeddings(model, tokenizer, sys, is_semantic_entity, 
@@ -147,7 +147,7 @@ def DS_Focus(model, tokenizer, sys, ref, is_semantic_entity=False, we=None, thre
 
 def DS_Sent(model, tokenizer, sys, ref, is_lexical_graph=False, we=None, threshold=0):
     
-    from metrics.sent_graph import get_embeddings
+    from disco_score.metrics.sent_graph import get_embeddings
     
     scores = []
     sys_u_a, num_sentences = EntityGraph(sys, is_lexical_graph, we, threshold)    

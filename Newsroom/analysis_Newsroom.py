@@ -4,7 +4,7 @@ from scipy.stats import spearmanr, kendalltau
 import numpy as np
 import collections
 import pickle 
-from metrics.utils import *
+from disco_score.metrics.utils import *
 
 class SUMStat:
     """ A class used to get stats of SUM trained data """

@@ -1,5 +1,5 @@
-from metrics import discourse
-from metrics.word_embeddings import load_embeddings
+from disco_score.metrics import discourse
+from disco_score.metrics.word_embeddings import load_embeddings
 from transformers import *
 import torch
 
