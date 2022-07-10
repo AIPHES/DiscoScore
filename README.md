@@ -62,4 +62,4 @@ for s, refs in zip(system, references):
 }
 ```
 # Acknowledgement 
-We are thankful to @JohnGiorgi for code organization and adding the feature of pip install.
+We are thankful to [@JohnGiorgi](https://github.com/AIPHES/DiscoScore/pull/2) for code organization and adding the feature of pip install.
