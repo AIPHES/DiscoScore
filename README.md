@@ -61,5 +61,7 @@ for s, refs in zip(system, references):
       primaryClass={cs.CL}
 }
 ```
+We refer to [NLLG](https://nl2g.github.io/publications) for more recent work if you are interested in evaluation of text generation.
+
 # Acknowledgement 
-We are thankful to [@JohnGiorgi](https://github.com/AIPHES/DiscoScore/pull/2) for code organization and adding the feature of pip install.
+We are thankful to [@JohnGiorgi](https://github.com/AIPHES/DiscoScore/pull/2) for code organization and adding the feature of pip install. 
