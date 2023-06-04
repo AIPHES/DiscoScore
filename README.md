@@ -52,13 +52,18 @@ for s, refs in zip(system, references):
 ## References
 
 ```
-@misc{zhao:2022-discoscore,
-      title={DiscoScore: Evaluating Text Generation with BERT and Discourse Coherence}, 
-      author={Wei Zhao and Michael Strube and Steffen Eger},
-      year={2022},
-      eprint={2201.11176},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{zhao-etal-2023-discoscore,
+    title = "{D}isco{S}core: Evaluating Text Generation with {BERT} and Discourse Coherence",
+    author = "Zhao, Wei  and
+      Strube, Michael  and
+      Eger, Steffen",
+    booktitle = "Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics",
+    month = may,
+    year = "2023",
+    address = "Dubrovnik, Croatia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.eacl-main.278",
+    pages = "3865--3883"
 }
 ```
 We refer to [NLLG](https://nl2g.github.io/publications) for more recent work if you are interested in evaluation of text generation.
