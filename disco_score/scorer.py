@@ -14,7 +14,8 @@ class DiscoScorer:
 		self.model.eval()
 		self.model.to(device)  
 		if we is not None:
-		    self.we = load_embeddings('deps', we) 
+		    we = load_embeddings('deps', we) 		
+		self.we = we
 
 	def LexicalChain(self, sys, ref):
 	    return discourse.LexicalChain(sys, ref)
