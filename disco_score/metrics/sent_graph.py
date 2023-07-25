@@ -57,14 +57,14 @@ def get_embeddings(model, tokenizer, text, text_u_a, device='cuda:0'):
     
     text_embedding = text_embedding[-1]
     
-    def _aggregation_to_sent_embedding(positions, data):
+    def _aggregation_to_sent_embedding(positions, data, device):
         # https://discuss.pytorch.org/t/groupby-aggregate-mean-in-pytorch/45335
-        M = torch.zeros(positions.max().int(), len(data)).cuda()
+        M = torch.zeros(positions.max().int(), len(data)).to(device=device)
         M[positions.long() - 1, torch.arange(len(data))] = 1 # sentid starting from 1
         M = torch.nn.functional.normalize(M, p=1, dim=1)
         return torch.mm(M, data)
     
-    text_embedding = _aggregation_to_sent_embedding(text_padded_sentids, text_embedding)
+    text_embedding = _aggregation_to_sent_embedding(text_padded_sentids, text_embedding, device=device)
  
     text_u_a = torch.from_numpy(text_u_a).to(device=device).float()    
             

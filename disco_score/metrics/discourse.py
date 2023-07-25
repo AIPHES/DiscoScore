@@ -118,17 +118,17 @@ def _safe_divide(numerator, denominator):
     return numerator / (denominator + 1e-30)
 
 
-def DS_Focus(model, tokenizer, sys, ref, is_semantic_entity=False, we=None, threshold=0):
+def DS_Focus(model, tokenizer, sys, ref, is_semantic_entity=False, we=None, threshold=0, device='cuda:0'):
     
     from disco_score.metrics.focus_diff import get_embeddings
     
     scores = []
     s_embedding, s_noun_positions = get_embeddings(model, tokenizer, sys, is_semantic_entity, 
-                                                   we, threshold)    
+                                                   we, threshold, device)    
     for r in ref:
 
         r_embedding, r_noun_positions = get_embeddings(model, tokenizer, r, is_semantic_entity, 
-                                                       we, threshold)
+                                                       we, threshold, device)
         _, s_ind, r_ind = np.intersect1d(list(s_noun_positions.keys()),
                                   list(r_noun_positions.keys()), 
                                   return_indices=True)
@@ -145,7 +145,7 @@ def DS_Focus(model, tokenizer, sys, ref, is_semantic_entity=False, we=None, thre
     return np.mean(scores)
 
 
-def DS_Sent(model, tokenizer, sys, ref, is_lexical_graph=False, we=None, threshold=0):
+def DS_Sent(model, tokenizer, sys, ref, is_lexical_graph=False, we=None, threshold=0, device='cuda:0'):
     
     from disco_score.metrics.sent_graph import get_embeddings
     
@@ -153,7 +153,7 @@ def DS_Sent(model, tokenizer, sys, ref, is_lexical_graph=False, we=None, thresho
     sys_u_a, num_sentences = EntityGraph(sys, is_lexical_graph, we, threshold)    
     sys_u_a = np.identity(num_sentences) + sys_u_a
 
-    s_embedding = get_embeddings(model, tokenizer, sys, sys_u_a)    
+    s_embedding = get_embeddings(model, tokenizer, sys, sys_u_a, device)    
     s_embedding.div_(torch.norm(s_embedding, dim=-1).unsqueeze(-1) + 1e-30)
 
     for r in ref:
@@ -161,7 +161,7 @@ def DS_Sent(model, tokenizer, sys, ref, is_lexical_graph=False, we=None, thresho
         ref_u_a, num_sentences = EntityGraph(r, is_lexical_graph, we, threshold)
         ref_u_a = np.identity(num_sentences) + ref_u_a
                 
-        r_embedding = get_embeddings(model, tokenizer, r, ref_u_a)
+        r_embedding = get_embeddings(model, tokenizer, r, ref_u_a, device)
         r_embedding.div_(torch.norm(r_embedding, dim=-1).unsqueeze(-1) + 1e-30) 
     
             
